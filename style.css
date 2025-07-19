@@ -1,0 +1,38 @@
+body {
+    background-color:aliceblue;
+    justify-content: center;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    height: 100vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    direction: rtl;
+    font-size:30px;
+}
+
+
+.continer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+a.wiget {
+    display: block;
+    background: linear-gradient(135deg, #4463ca, #ffffff);
+    border-radius: 20px;
+    padding: 110px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    text-decoration: none;
+}
+
+.note {
+    grid-column: span 2;
+}
+
+.music {
+    grid-column: span 2;
+}
+
