@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>note</title>
+</head>
+<style>
+    .sidebar {
+  color: white;
+  font-family: 'Mantinia', sans-serif;
+  scrollbar-color: #313131 #020202;
+  grid-area: sidebar;
+  background-color: #111;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.logo {
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  background: #222;
+  border-radius: 10px;
+}
+
+.menu-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.menu-wrapper.closed {
+  transform: translateX(-110%);
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+}
+
+.submenu.open {
+  display: flex;
+}
+
+
+</style>
+<body>
+    <aside class="sidebar">
+        <div class="logo" id="toggleSidebar">Elden Music</div>
+        <div class="menu-wrapper" id="menuWrapper">
+          <nav class="menu">
+            <div class="menu-title" onclick="document.getElementById('fileInput').click()">Add from Device</div>
+            <input type="file" accept="audio/*" id="fileInput" style="display:none" onchange="loadLocalFile(event)">
+            <a href="#">Home</a>
+            <div class="menu-title" onclick="toggleSubmenu()">Playlist</div>
+            <div class="submenu" id="submenu">
+              <a href="#">Favorite</a>
+              <a href="#">Dance</a>
+            </div>
+            <a href="#">Artists</a>
+          </nav>
+          <a href="#">
+            <svg viewBox="0 0 24 24" class="icon-logout" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"></rect>
+              <path d="M15 12h6M18 9l3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            </svg>
+            Logout
+          </a>
+        </div>
+      </aside>
+
+      
+    <script>document.getElementById("toggleSidebar").addEventListener("click", function() {
+        document.getElementById("menuWrapper").classList.toggle("closed");
+      });
+      
+      function toggleSubmenu() {
+        document.getElementById("submenu").classList.toggle("open");
+      }
+      
+      </script>
+</body>
+</html>

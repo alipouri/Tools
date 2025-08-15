@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elden Music</title>
+  <link rel="stylesheet" href="Style.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.5/dist/jsmediatags.min.js"></script>
+</head>
+<body>
+  <div class="continer" id="grid">
+    <button id="eldemusic-btn"><span class="botto">⬅</span></button>
+
+    <aside class="sidebar" id="sidebar">
+      <div>
+        <div class="logo">Elden Music</div>
+        <nav class="menu">
+          <div class="menu-title" onclick="document.getElementById('fileInput').click()">Add from Device</div>
+          <input type="file" accept="audio/*" id="fileInput" style="display:none" onchange="loadLocalFile(event)">
+          <a href="#">Home</a>
+
+          <div class="menu-title" onclick="toggleSubmenu()">Playlist</div>
+          <div class="submenu" id="submenu">
+            <a href="#">Favorite</a>
+            <a href="#">Dance</a>
+          </div>
+
+          <a href="#">Artists</a>
+        </nav>
+      </div>
+
+      <a href="#">
+        <svg viewBox="0 0 24 24" class="icon-logout" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M15 12h6M18 9l3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        Logout
+      </a>
+    </aside>
+
+    <main class="content">
+      <div class="music-grid">
+        <div class="music-card" onclick="playMusic('./musics/chavoshi.mp3', 'Ghande Mani', 'Mohsen Chavoshi', './cover/cover1.jpg')">
+          <img src="./cover/cover1.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Ghande Mani</div>
+          <div class="artist-name">Mohsen Chavoshi</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/ghorbani.mp3', 'Tasian', 'Alireza Ghorbani', './cover/cover2.jpg')">
+          <img src="./cover/cover2.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Tasian</div>
+          <div class="artist-name">Alireza Ghorbani</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/Alive.mp3', 'Alive', 'Homayoun Shajarian', './cover/cover3.jpg')">
+          <img src="./cover/cover3.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Alive</div>
+          <div class="artist-name">Homayoun Shajarian</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/morgh.mp3', 'Morghe Sahar', 'Shajarian', './cover/cover4.jpg')">
+          <img src="./cover/cover4.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Morghe Sahar</div>
+          <div class="artist-name">Shajarian</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/Peyke.mp3', 'Peyke Sahari', 'Shakila', './cover/cover5.jpg')">
+          <img src="./cover/cover5.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Peyke Sahari</div>
+          <div class="artist-name">Shakila</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/yek.mp3', 'Yek Nafas Arezoye To', 'Homayoun Shajarian', './cover/cover6.jpg')">
+          <img src="./cover/cover6.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Yek Nafas Arezoye To</div>
+          <div class="artist-name">Homayoun Shajarian</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/Bache.mp3', 'Bache Bahala', 'Reza Pishro', './cover/cover7.jpg')">
+          <img src="./cover/cover7.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Bache Bahala</div>
+          <div class="artist-name">Reza Pishro</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/Dardesar.mp3', 'Dardesar', 'Reza Pishro', './cover/cover8.jpg')">
+          <img src="./cover/cover8.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Dardesar</div>
+          <div class="artist-name">Reza Pishro</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/Nirvana.mp3', 'Nirvana', 'Reza Pishro', './cover/cover9.jpg')">
+          <img src="./cover/cover9.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Nirvana</div>
+          <div class="artist-name">Reza Pishro</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/Ghabrestoone.mp3', 'Ghabrestoone Hiphop 2', 'Reza Pishro', './cover/cover10.jpg')">
+          <img src="./cover/cover10.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Ghabrestoone Hiphop 2</div>
+          <div class="artist-name">Reza Pishro</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/Zombie.mp3', 'Zombie', 'Reza Pishro', './cover/cover11.jpg')">
+          <img src="./cover/cover11.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Zombie</div>
+          <div class="artist-name">Reza Pishro</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/music.mp3', 'Morghe Sahar', 'Shajarian', './cover/cover12.jpg')">
+          <img src="./cover/cover12.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Morghe Sahar</div>
+          <div class="artist-name">Shajarian</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/music.mp3', 'Morghe Sahar', 'Shajarian', './cover/cover13.jpg')">
+          <img src="./cover/cover13.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Morghe Sahar</div>
+          <div class="artist-name">Shajarian</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/music.mp3', 'Morghe Sahar', 'Shajarian', './cover/cover14.jpg')">
+          <img src="./cover/cover14.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Morghe Sahar</div>
+          <div class="artist-name">Shajarian</div>
+        </div>
+
+        <div class="music-card" onclick="playMusic('./musics/music.mp3', 'Morghe Sahar', 'Shajarian', './cover/cover15.jpg')">
+          <img src="./cover/cover15.jpg" alt="Cover" class="cover" />
+          <div class="song-title">Morghe Sahar</div>
+          <div class="artist-name">Shajarian</div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="player">
+      <div class="player-left">
+        <div class="song-info">
+          <img src="./cover/cover.png" id="song-cover" alt="Current cover" />
+          <div class="song-text">
+            <div class="title" id="song-title">Song Title</div>
+            <div class="artist" id="song-artist">Artist</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="player-center">
+        <div class="controls">
+          <button onclick="prevSong()">
+            <svg viewBox="0 0 24 24"><polygon points="19,3 9,12 19,21" /><line x1="7" y1="3" x2="7" y2="21" /></svg>
+          </button>
+          <button onclick="togglePlay()" id="play-btn">
+            <svg viewBox="0 0 24 24" id="play-icon"><polygon points="5,3 19,12 5,21" /></svg>
+            <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;">
+              <rect x="6" y="4" width="4" height="16" />
+              <rect x="14" y="4" width="4" height="16" />
+            </svg>
+          </button>
+          <button onclick="nextSong()">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 15,12 5,21" /><line x1="17" y1="3" x2="17" y2="21" /></svg>
+          </button>
+        </div>
+        <div class="progress-bar" id="progress-bar">
+          <div class="progress-fill" id="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <div class="player-right">
+        <button onclick="toggleVolume()" id="volume-btn" >
+          <svg viewBox="0 0 24 24" id="volume-on">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+          </svg>
+          <svg viewBox="0 0 24 24" id="volume-off" style="display: none;">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+            <path d="M15 9l-6 6" />
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // ——— Player setup ———
+const audio = (window.audio = new Audio());
+audio.preload = 'metadata';
+
+let currentIndex = -1;
+let playlist = [];
+
+// Elements
+const playIcon = document.getElementById('play-icon');
+const pauseIcon = document.getElementById('pause-icon');
+const volumeOn = document.getElementById('volume-on');
+const volumeOff = document.getElementById('volume-off');
+const progressBar = document.getElementById('progress-bar');
+const progressFill = document.getElementById('progress-bar-fill');
+
+const titleEl = document.getElementById('song-title');
+const artistEl = document.getElementById('song-artist');
+const coverEl = document.getElementById('song-cover');
+
+const sidebar = document.getElementById('sidebar');
+const gridContainer = document.getElementById('grid');
+const sidebarBtn = document.getElementById('eldemusic-btn');
+
+let dragging = false;
+let lastVolume = 1;
+let sidebarOpen = true;
+
+// ——— UI helpers ———
+function setPlayIcon(playing) {
+  playIcon.style.display = playing ? 'none' : 'block';
+  pauseIcon.style.display = playing ? 'block' : 'none';
+}
+function setVolumeIcons() {
+  const muted = audio.muted;
+  volumeOn.style.display = muted ? 'none' : 'block';
+  volumeOff.style.display = muted ? 'block' : 'none';
+}
+function updateProgress() {
+  const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+  progressFill.style.width = pct + '%';
+}
+function updateSongInfo(title, artist, cover) {
+  if (title) titleEl.textContent = title;
+  if (artist) artistEl.textContent = artist;
+  if (cover) coverEl.src = cover;
+}
+
+// ——— Controls ———
+function playMusic(src, title, artist, cover, index) {
+  if (!src) return;
+  progressFill.style.width = '0%';
+  if (audio.src !== src) audio.src = src;
+  updateSongInfo(title, artist, cover);
+  audio.play().catch(() => setPlayIcon(false));
+  if (index !== undefined) currentIndex = index; // ذخیره اندیس آهنگ فعلی
+}
+window.playMusic = playMusic;
+
+function togglePlay() {
+  if (!audio.src) return;
+  if (audio.paused) audio.play().catch(() => setPlayIcon(false));
+  else audio.pause();
+}
+window.togglePlay = togglePlay;
+
+// ——— آهنگ بعدی و قبلی ———
+function nextSong() {
+  if (playlist.length === 0) return;
+  currentIndex = (currentIndex + 1) % playlist.length;
+  const song = playlist[currentIndex];
+  playMusic(song.src, song.title, song.artist, song.cover, currentIndex);
+}
+function prevSong() {
+  if (playlist.length === 0) return;
+  currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+  const song = playlist[currentIndex];
+  playMusic(song.src, song.title, song.artist, song.cover, currentIndex);
+}
+window.nextSong = nextSong;
+window.prevSong = prevSong;
+
+// وقتی آهنگ تموم شد، برو بعدی
+audio.addEventListener('ended', nextSong);
+
+audio.addEventListener('play', () => setPlayIcon(true));
+audio.addEventListener('pause', () => setPlayIcon(false));
+audio.addEventListener('timeupdate', updateProgress);
+
+// ——— Seek (click & drag) ———
+function seekFromEvent(e) {
+  if (!audio.duration) return;
+  const rect = progressBar.getBoundingClientRect();
+  const ratio = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1);
+  audio.currentTime = ratio * audio.duration;
+}
+progressBar.addEventListener('click', seekFromEvent);
+progressBar.addEventListener('mousedown', (e) => { dragging = true; seekFromEvent(e); });
+window.addEventListener('mousemove', (e) => { if (dragging) seekFromEvent(e); });
+window.addEventListener('mouseup', () => { dragging = false; });
+
+// ——— Volume ———
+function toggleVolume() {
+  if (!audio.muted && audio.volume > 0) {
+    lastVolume = audio.volume;
+    audio.muted = true;
+  } else {
+    audio.muted = false;
+    audio.volume = lastVolume || 1;
+  }
+  setVolumeIcons();
+}
+window.toggleVolume = toggleVolume;
+
+// ——— Submenu ———
+function toggleSubmenu() {
+  const submenu = document.getElementById('submenu');
+  const visible = getComputedStyle(submenu).display !== 'none';
+  submenu.style.display = visible ? 'none' : 'flex';
+}
+window.toggleSubmenu = toggleSubmenu;
+
+// ——— Sidebar toggle ———
+function toggleSidebar() {
+  sidebarOpen = !sidebarOpen;
+  sidebar.classList.toggle('closed', !sidebarOpen);
+  gridContainer.style.gridTemplateColumns = sidebarOpen ? '250px 1fr' : '0 1fr';
+  sidebarBtn.textContent = sidebarOpen ? '⬅' : '➡';
+}
+sidebarBtn.addEventListener('click', toggleSidebar);
+
+// ——— Local file loader ——— (بدون تغییر)
+function loadLocalFile(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  const url = URL.createObjectURL(file);
+  const fallbackTitle = file.name.replace(/\.[^/.]+$/, '');
+
+  updateSongInfo(fallbackTitle, 'Unknown Artist', coverEl.src);
+  playMusic(url, fallbackTitle, 'Unknown Artist', coverEl.src);
+
+  audio.addEventListener('loadeddata', () => URL.revokeObjectURL(url), { once: true });
+
+  if (window.jsmediatags) {
+    window.jsmediatags.read(file, {
+      onSuccess: ({ tags }) => {
+        const title = tags?.title || fallbackTitle;
+        const artist = tags?.artist || 'Unknown Artist';
+        let cover = coverEl.src;
+        if (tags?.picture) {
+          const { data, format } = tags.picture;
+          let b64 = '';
+          for (let i = 0; i < data.length; i++) b64 += String.fromCharCode(data[i]);
+          cover = `data:${format};base64,${btoa(b64)}`;
+        }
+        updateSongInfo(title, artist, cover);
+        addToMusicGrid(url, title, artist, cover);
+      },
+      onError: () => {
+        addToMusicGrid(url, fallbackTitle, 'Unknown Artist', coverEl.src);
+      }
+    });
+  } else {
+    addToMusicGrid(url, fallbackTitle, 'Unknown Artist', coverEl.src);
+  }
+}
+window.loadLocalFile = loadLocalFile;
+
+function addToMusicGrid(src, title, artist, cover) {
+  const grid = document.querySelector('.music-grid');
+  const card = document.createElement('div');
+  card.className = 'music-card';
+  const index = playlist.length; // محل آهنگ جدید در پلی‌لیست
+  card.onclick = () => playMusic(src, title, artist, cover, index);
+  const img = document.createElement('img');
+  img.src = cover;
+  img.className = 'cover';
+  img.alt = 'Cover';
+  const songTitle = document.createElement('div');
+  songTitle.className = 'song-title';
+  songTitle.textContent = title;
+  const artistName = document.createElement('div');
+  artistName.className = 'artist-name';
+  artistName.textContent = artist;
+  card.appendChild(img);
+  card.appendChild(songTitle);
+  card.appendChild(artistName);
+  grid.appendChild(card);
+
+  playlist.push({ src, title, artist, cover }); // اضافه به پلی‌لیست
+}
+
+// ——— ساخت پلی‌لیست از کارت‌های اولیه HTML ———
+document.querySelectorAll('.music-card').forEach((card, index) => {
+  const img = card.querySelector('img').src;
+  const title = card.querySelector('.song-title').textContent;
+  const artist = card.querySelector('.artist-name').textContent;
+  const onclickAttr = card.getAttribute('onclick');
+  const srcMatch = onclickAttr.match(/'(.*?)'/); // اولین رشته (مسیر آهنگ)
+  if (srcMatch) {
+    const src = srcMatch[1];
+    playlist.push({ src, title, artist, cover: img });
+    card.onclick = () => playMusic(src, title, artist, img, index);
+  }
+});
+
+setPlayIcon(false);
+setVolumeIcons();
+gridContainer.style.gridTemplateColumns = '250px 1fr';
+
+  </script>
+  <!-- <script>
+    const playlist = [
+      { src: './musics/chavoshi.mp3', title: 'Ghande Mani', artist: 'Mohsen Chavoshi', cover: './cover/cover1.jpg' },
+      { src: './musics/ghorbani.mp3', title: 'Tasian', artist: 'Alireza Ghorbani', cover: './cover/cover2.jpg' },
+      { src: './musics/Alive.mp3', title: 'Alive', artist: 'Homayoun Shajarian', cover: './cover/cover3.jpg' },
+    ];
+    let currentindex = 0;
+
+    function playFromPlaylist(index) {
+      if (index < 0 || index >= playlist.length) return;
+      currentIndex = index;
+      const song = playlist[currentIndex];
+      playMusic(song.src, song.title, song.artist, song.cover);
+    }
+
+    function nextSong() {
+      currentIndex = (currentIndex + 1) % playlist.length;
+      playFromPlaylist(currentIndex);
+    }
+
+    function prevSong() {
+      currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+      playFromPlaylist(currentIndex);
+    }
+    // audio.addEventListener('ended', nextSong);
+    // ——— Player setup ———
+    const audio = (window.audio = new Audio());
+    audio.preload = 'metadata';
+
+    // Elements
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const volumeOn = document.getElementById('volume-on');
+    const volumeOff = document.getElementById('volume-off');
+    const progressBar = document.getElementById('progress-bar');
+    const progressFill = document.getElementById('progress-bar-fill');
+
+    const titleEl = document.getElementById('song-title');
+    const artistEl = document.getElementById('song-artist');
+    const coverEl = document.getElementById('song-cover');
+
+    const sidebar = document.getElementById('sidebar');
+    const gridContainer = document.getElementById('grid');
+    const sidebarBtn = document.getElementById('eldemusic-btn');
+
+    let dragging = false;
+    let lastVolume = 1;
+    let sidebarOpen = true;
+
+    // ——— UI helpers ———
+    function setPlayIcon(playing) {
+      playIcon.style.display = playing ? 'none' : 'block';
+      pauseIcon.style.display = playing ? 'block' : 'none';
+    }
+    function setVolumeIcons() {
+      const muted = audio.muted;
+      volumeOn.style.display = muted ? 'none' : 'block';
+      volumeOff.style.display = muted ? 'block' : 'none';
+    }
+    function updateProgress() {
+      const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+      progressFill.style.width = pct + '%';
+    }
+    function updateSongInfo(title, artist, cover) {
+      if (title) titleEl.textContent = title;
+      if (artist) artistEl.textContent = artist;
+      if (cover) coverEl.src = cover;
+    }
+
+    // ——— Controls ———
+    function playMusic(src, title, artist, cover) {
+      if (!src) return;
+      progressFill.style.width = '0%';
+      if (audio.src !== src) audio.src = src;
+      updateSongInfo(title, artist, cover);
+      audio.play().catch(() => setPlayIcon(false));
+    }
+    window.playMusic = playMusic;
+
+    function togglePlay() {
+      if (!audio.src) return;
+      if (audio.paused) audio.play().catch(() => setPlayIcon(false));
+      else audio.pause();
+    }
+    window.togglePlay = togglePlay;
+
+    audio.addEventListener('play', () => setPlayIcon(true));
+    audio.addEventListener('pause', () => setPlayIcon(false));
+    audio.addEventListener('ended', () => {
+      setPlayIcon(false);
+      progressFill.style.width = '0%';
+    });
+    audio.addEventListener('timeupdate', updateProgress);
+
+    // ——— Seek (click & drag) ———
+    function seekFromEvent(e) {
+      if (!audio.duration) return;
+      const rect = progressBar.getBoundingClientRect();
+      const ratio = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1);
+      audio.currentTime = ratio * audio.duration;
+    }
+    progressBar.addEventListener('click', seekFromEvent);
+    progressBar.addEventListener('mousedown', (e) => { dragging = true; seekFromEvent(e); });
+    window.addEventListener('mousemove', (e) => { if (dragging) seekFromEvent(e); });
+    window.addEventListener('mouseup', () => { dragging = false; });
+
+    // ——— Volume ———
+    function toggleVolume() {
+      if (!audio.muted && audio.volume > 0) {
+        lastVolume = audio.volume;
+        audio.muted = true;
+      } else {
+        audio.muted = false;
+        audio.volume = lastVolume || 1;
+      }
+      setVolumeIcons();
+    }
+    window.toggleVolume = toggleVolume;
+
+    // ——— Submenu ———
+    function toggleSubmenu() {
+      const submenu = document.getElementById('submenu');
+      const visible = getComputedStyle(submenu).display !== 'none';
+      submenu.style.display = visible ? 'none' : 'flex';
+    }
+    window.toggleSubmenu = toggleSubmenu;
+
+    // ——— Sidebar toggle without leftover space ———
+    function toggleSidebar() {
+      sidebarOpen = !sidebarOpen;
+      sidebar.classList.toggle('closed', !sidebarOpen);
+      gridContainer.style.gridTemplateColumns = sidebarOpen ? '250px 1fr' : '0 1fr';
+      sidebarBtn.textContent = sidebarOpen ? '⬅' : '➡';
+    }
+    sidebarBtn.addEventListener('click', toggleSidebar);
+
+    // ——— Local file loader + tags ———
+    function loadLocalFile(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      const url = URL.createObjectURL(file);
+      const fallbackTitle = file.name.replace(/\.[^/.]+$/, '');
+
+      // پخش فوری با اطلاعات اولیه
+      updateSongInfo(fallbackTitle, 'Unknown Artist', coverEl.src);
+      playMusic(url, fallbackTitle, 'Unknown Artist', coverEl.src);
+
+      // آزادسازی URL بعد از لود دیتا
+      audio.addEventListener('loadeddata', () => URL.revokeObjectURL(url), { once: true });
+
+      // تلاش برای خواندن تگ‌ها
+      if (window.jsmediatags) {
+        window.jsmediatags.read(file, {
+          onSuccess: ({ tags }) => {
+            const title = tags?.title || fallbackTitle;
+            const artist = tags?.artist || 'Unknown Artist';
+            let cover = coverEl.src;
+            if (tags?.picture) {
+              const { data, format } = tags.picture;
+              let b64 = '';
+              for (let i = 0; i < data.length; i++) b64 += String.fromCharCode(data[i]);
+              cover = `data:${format};base64,${btoa(b64)}`;
+            }
+            updateSongInfo(title, artist, cover);
+            addToMusicGrid(url, title, artist, cover);
+          },
+          onError: () => {
+            addToMusicGrid(url, fallbackTitle, 'Unknown Artist', coverEl.src);
+          }
+        });
+      } else {
+        addToMusicGrid(url, fallbackTitle, 'Unknown Artist', coverEl.src);
+      }
+    }
+    window.loadLocalFile = loadLocalFile;
+
+    function addToMusicGrid(src, title, artist, cover) {
+      const grid = document.querySelector('.music-grid');
+
+      const card = document.createElement('div');
+      card.className = 'music-card';
+      card.onclick = () => playMusic(src, title, artist, cover);
+
+      const img = document.createElement('img');
+      img.src = cover;
+      img.className = 'cover';
+      img.alt = 'Cover';
+
+      const songTitle = document.createElement('div');
+      songTitle.className = 'song-title';
+      songTitle.textContent = title;
+
+      const artistName = document.createElement('div');
+      artistName.className = 'artist-name';
+      artistName.textContent = artist;
+
+      card.appendChild(img);
+      card.appendChild(songTitle);
+      card.appendChild(artistName);
+      grid.appendChild(card);
+    }
+
+    // ——— Init ———
+    setPlayIcon(false);
+    setVolumeIcons();
+    gridContainer.style.gridTemplateColumns = '250px 1fr'; // حالت پیش‌فرض باز
+  </script> -->
+</body>
+</html>

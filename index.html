@@ -1,62 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player</title>
-    <link rel="stylesheet" href="style.css">
-    <style>body {
-        background-color:aliceblue;
-        justify-content: center;
-        display: flex;
-        margin: 0;
-        align-items: center;
-        height: 100vh;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        direction: rtl;
-        font-size:30px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Player</title>
+  <style>
+    body {
+      background-color: rgb(20, 20, 20);
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      direction: rtl;
+      font-size: 26px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    
-    
-    .continer{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1600px;
     }
-    
-    a.wiget {
-        display: block;
-        background: linear-gradient(135deg, #4463ca, #ffffff);
-        border-radius: 20px;
-        padding: 110px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin: 15px;
-        text-decoration: none;
+    .wiget {
+    display: block;
+    background: linear-gradient(135deg,#b3b3b7 , #1b3488);
+    border-radius: 20px;
+    padding: 150px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
     }
-    
-    .note {
-        grid-column: span 2;
+
+    .clock{
+      /* background: linear-gradient(115deg, #4463ca 0%, #4463ca, #070707); */
+      /* border-radius: 20px; */
+      padding: 66px;
+      /* text-align:left; */
+      /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+      /* color: rgb(0, 0, 0); */
+      /* text-decoration: none; */
     }
-    
-    .music {
-        grid-column: span 2;
+
+    .wiget:hover {
+      background-color: #070707f1;
     }
-    
-    </style>
+
+    .clock {
+      position: relative;
+      width: 45%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(125deg, #ffffff 0%, #ececec, #4e4e4ed0);
+      border: 8px solid #0d1b2a;
+      box-shadow: inset 0 0 20px #00000066;
+      border-radius: 50%;
+      color: #0d1b2a;
+      margin-top: 12%;
+      margin-right: 10%;
+    }
+
+    .numbers span {
+      position: absolute;
+      width: 35px;
+      height: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      transform: rotate(calc(30deg * var(--i))) translateY(-130px) rotate(calc(-30deg * var(--i)));
+      top: 46%;
+      left: 46%;
+      transform-origin: bottom center;
+    }
+
+    .hand {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0%;
+      border-radius: 6px;
+    }
+
+    .hand.hour {
+      width: 24%;
+      height: 6px;
+      background: #0d1b2a;
+    }
+
+    .hand.minute {
+      width: 32%;
+      height: 4px;
+      background: #0d1b2a;
+    }
+
+    .hand.second {
+      width: 40%;
+      height: 2px;
+      background: crimson;
+    }
+
+    .center-dot {
+      width: 14px;
+      height: 14px;
+      background: #0d1b2a;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .calendar {
+      width:auto;
+      height:auto 340px;
+      background: #e0eafc;
+      border: 4px solid #0d1b2a;
+      border-radius: 20px;
+      padding: 25px;
+      color: #0d1b2a;
+      font-size: 22px;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .calendar-header button {
+      background: none;
+      border: none;
+      font-size: 17px;
+      cursor: pointer;
+      color: #0d1b2a;
+    }
+
+    .calendar-days, .calendar-dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+    }
+
+    .calendar-days div {
+      font-weight: bold;
+      padding: 6px;
+    }
+
+    .calendar-dates div {
+      padding: 10px;
+      margin: 2px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .calendar-dates div:hover {
+      background: #b5cde7;
+      cursor: pointer;
+    }
+
+    .today {
+      background: #0d1b2a;
+      color: white;
+    }
+    @media (max-width: 992px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+.wheather{
+    background: url(./task/weather.webp);
+    background-position:center;
+    background-size: cover;
+}
+
+h6{
+    margin-top: -17%;
+    /* margin-left: -40px; */
+    text-align:center ;
+    font-size: 20px
+}
+.note{
+    background-image: url(./task/Note.webp);
+    background-size:calc(100%);
+    background-position: center;
+    grid-column:span 2;
+    background-repeat: no-repeat;
+        
+}
+.music{
+  grid-column: span 2;
+  background-image: url(./task/music.webp);
+  background-size: cover;
+  background-position: center;
+}
+
+.image{
+  background-image: url(./task/galery2.webp);
+  
+  background-position: center;
+  background-size: cover;
+}
+  </style>
 </head>
 <body>
-    <div class="continer">
-        <a href="./task/clock.html" class="wiget clock">clock</a>
-        <a href="./task/music-player.html" class="wiget music">Music Player</a>
-        <a href="./task/clander.html" class="wiget clander">clander</a>
-        <a href="./task/note.html" class="wiget note">Notes</a>
-        <a href="./task/wheather.html" class="wiget wheather">Weather</a>
-        <a href="./task/tride.html" class="wiget tride">Tride</a>
+  <div class="container">
+    <div class="clock">
+      <div class="numbers">
+        <span style="--i:1;">1</span><span style="--i:2;">2</span><span style="--i:3;">3</span>
+        <span style="--i:4;">4</span><span style="--i:5;">5</span><span style="--i:6;">6</span>
+        <span style="--i:7;">7</span><span style="--i:8;">8</span><span style="--i:9;">9</span>
+        <span style="--i:10;">10</span><span style="--i:11;">11</span><span style="--i:12;">12</span>
+      </div>
+      <div class="hand hour" id="hour"></div>
+      <div class="hand minute" id="minute"></div>
+      <div class="hand second" id="second"></div>
+      <div class="center-dot"></div>
+    </div>
+
+    <a href="./task/note.html" class="wiget note"></a>
+
+    <div class="calendar">
+      <div class="calendar-header">
+        <button onclick="prevMonth()">&#10094;</button>
+        <div id="monthYear"></div>
+        <button onclick="nextMonth()">&#10095;</button>
+      </div>
+      <div class="calendar-days">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div>
+        <div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div class="calendar-dates" id="calendarDates"></div>
     </div>
     
+    <a href="./task/wheather.html" class="wiget wheather"></a>
+      <a href="./task/image.html" class="wiget image"></a>
+      <a href="./task/Music/music-player.html" class="wiget music"></a>
+  </div>
 
+  <script>
+    function updateClock() {
+      const now = new Date()
+      const hour = now.getHours()
+      const minute = now.getMinutes()
+      const second = now.getSeconds()
+      const hourDeg = ((hour % 12) + minute / 60) * 30
+      const minuteDeg = (minute + second / 60) * 6
+      const secondDeg = second * 6
+      document.getElementById('hour').style.transform = `rotate(${hourDeg}deg)`
+      document.getElementById('minute').style.transform = `rotate(${minuteDeg}deg)`
+      document.getElementById('second').style.transform = `rotate(${secondDeg}deg)`
+    }
 
-    <script src="script.js"></script>
+    setInterval(updateClock, 1000)
+    updateClock()
+
+    const monthYear = document.getElementById('monthYear')
+    const calendarDates = document.getElementById('calendarDates')
+    let currentDate = new Date()
+
+    function renderCalendar(date) {
+      calendarDates.innerHTML = ''
+      const year = date.getFullYear()
+      const month = date.getMonth()
+      const firstDay = new Date(year, month, 1).getDay()
+      const lastDate = new Date(year, month + 1, 0).getDate()
+      const today = new Date()
+      const isThisMonth = today.getFullYear() === year && today.getMonth() === month
+      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                          'July', 'August', 'September', 'October', 'November', 'December']
+      monthYear.textContent = `${monthNames[month]} ${year}`
+      for (let i = 0; i < firstDay; i++) {
+        calendarDates.innerHTML += `<div></div>`
+      }
+      for (let i = 1; i <= lastDate; i++) {
+        const isToday = isThisMonth && i === today.getDate()
+        calendarDates.innerHTML += `<div class="${isToday ? 'today' : ''}">${i}</div>`
+      }
+    }
+
+    function prevMonth() {
+      currentDate.setMonth(currentDate.getMonth() - 1)
+      renderCalendar(currentDate)
+    }
+
+    function nextMonth() {
+      currentDate.setMonth(currentDate.getMonth() + 1)
+      renderCalendar(currentDate)
+    }
+
+    renderCalendar(currentDate)
+  </script>
 </body>
 </html>
